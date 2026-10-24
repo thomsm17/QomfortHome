@@ -1,2 +1,3 @@
 - [QomfortHome visual direction](qomfort-home-branding.md) — Keep the white-backed logo, full-width drone hero with green sweep, and FAQs separate from the contact form.
 - [Email sending diagnostics](email-sending.md) — Resend send-only keys can reject domain lookups while sending works; distinguish sender verification from key failures.
+- [GitHub Pages publishing source](github-pages-hosting.md) — Use GitHub Actions, not branch-root publishing; competing deployments can overwrite a working build.
