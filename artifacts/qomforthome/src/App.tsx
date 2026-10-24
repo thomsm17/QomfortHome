@@ -46,7 +46,7 @@ function App() {
             <span className="flex h-[70px] w-[150px] items-center justify-center overflow-hidden bg-white">
               <img src="/qomforthome-logo-white.webp" className="h-[70px] w-full object-contain" alt="Logo van QomfortHome Installatiebedrijf" />
             </span>
-            <span className="hidden text-[10px] font-semibold uppercase leading-[1.5] tracking-[.15em] text-[#758075] sm:inline">Comfort begint<br />met goed advies</span>
+            <span className="hidden text-[10px] font-semibold uppercase leading-[1.5] tracking-[.15em] text-[#4c6b35] sm:inline">Comfort begint<br />met goed advies</span>
           </a>
           <nav aria-label="Hoofdnavigatie" className="desktop-nav flex items-center gap-8">
             <a className="nav-link" href="#diensten">Onze diensten</a>
@@ -54,7 +54,7 @@ function App() {
             <a className="nav-link" href="#over-ons">Over QomfortHome</a>
             <a className="action-link !min-h-[43px] !px-4" href={phoneHref}><Phone size={15} aria-hidden="true" /> Bel ons</a>
           </nav>
-          <button className="mobile-menu min-h-11 min-w-11 items-center justify-center rounded border border-[#d7ddd2] text-[#315640]" aria-label={menuOpen ? 'Menu sluiten' : 'Menu openen'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="mobile-menu min-h-11 min-w-11 items-center justify-center rounded border border-[#d7ddd2] text-[#4c6b35]" aria-label={menuOpen ? 'Menu sluiten' : 'Menu openen'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
@@ -76,7 +76,7 @@ function App() {
           </button>
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <div className="container-wide py-14 md:py-20">
-            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98] [text-shadow:0_2px_18px_rgba(14,30,20,.45)]">Een huis dat <span className="text-[#386847] [text-shadow:0_0_6px_rgba(246,243,232,0.9)]">goed voelt.</span></h1>
+            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#4c6b35]">goed voelt.</span></h1>
             <p className="fade-up delay-2 mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[#eef0e4]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a className="action-link !border !border-[#ffffff66] !bg-transparent hover:!bg-[#ffffff22]" href={phoneHref}><Phone size={16} aria-hidden="true" /> Bel voor persoonlijk advies <ArrowRight size={16} aria-hidden="true" /></a>
@@ -88,9 +88,9 @@ function App() {
 
         <section className="border-y border-[#e2e1d7] bg-[#eeeee3]">
           <div className="container-wide grid grid-cols-1 gap-6 py-6 sm:grid-cols-3 sm:gap-0">
-            <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:pl-2"><House size={19} className="text-[#567455]" /><span className="text-[13px] font-semibold text-[#405748]">Advies afgestemd op uw woning</span></div>
-            <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:px-7"><Thermometer size={19} className="text-[#567455]" /><span className="text-[13px] font-semibold text-[#405748]">Installatie en advies onder één dak</span></div>
-            <div className="flex items-center gap-3 sm:pl-7"><Phone size={18} className="text-[#567455]" /><span className="text-[13px] font-semibold text-[#405748]">Direct persoonlijk contact</span></div>
+            <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:pl-2"><House size={19} className="text-[#4c6b35]" /><span className="text-[13px] font-semibold text-[#4c6b35]">Advies afgestemd op uw woning</span></div>
+            <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:px-7"><Thermometer size={19} className="text-[#4c6b35]" /><span className="text-[13px] font-semibold text-[#4c6b35]">Installatie en advies onder één dak</span></div>
+            <div className="flex items-center gap-3 sm:pl-7"><Phone size={18} className="text-[#4c6b35]" /><span className="text-[13px] font-semibold text-[#4c6b35]">Direct persoonlijk contact</span></div>
           </div>
         </section>
 
@@ -98,9 +98,9 @@ function App() {
           <div className="grid gap-10 md:grid-cols-[.78fr_1.22fr] md:gap-20">
             <div>
               <p className="eyebrow">Wat we voor u kunnen doen</p>
-              <h2 className="serif mt-5 text-[clamp(2.5rem,4.4vw,4rem)] leading-[1.04] text-[#294734]">Techniek die<br />thuis past.</h2>
-              <p className="mt-5 max-w-[380px] text-[14px] leading-7 text-[#657369]">Geen huis is hetzelfde. We kijken naar uw situatie en leggen helder uit welke oplossingen u kunt overwegen.</p>
-              <a href={phoneHref} className="mt-7 inline-flex items-center gap-2 text-[13px] font-bold text-[#3c6748] no-underline hover:text-[#b45b48]">Bespreek uw plannen <ArrowRight size={16} /></a>
+              <h2 className="serif mt-5 text-[clamp(2.5rem,4.4vw,4rem)] leading-[1.04] text-[#4c6b35]">Techniek die<br />thuis past.</h2>
+              <p className="mt-5 max-w-[380px] text-[14px] leading-7 text-[#4c6b35]">Geen huis is hetzelfde. We kijken naar uw situatie en leggen helder uit welke oplossingen u kunt overwegen.</p>
+              <a href={phoneHref} className="mt-7 inline-flex items-center gap-2 text-[13px] font-bold text-[#4c6b35] no-underline hover:text-[#4c6b35]">Bespreek uw plannen <ArrowRight size={16} /></a>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               {services.map((service, index) => {
@@ -108,9 +108,9 @@ function App() {
                 return <article className="group overflow-hidden rounded-sm border border-[#d8dacf] bg-[#fbfaf3]" key={service.title}>
                   <div className="aspect-[4/3] overflow-hidden bg-[#dfe3d6]"><img src={serviceImages[index]} alt={serviceAlts[index]} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width="800" height="600" loading="lazy" /></div>
                   <div className="p-5">
-                    <div className="flex items-center justify-between"><span className="flex items-center gap-2 text-[#48704e]"><Icon size={18} strokeWidth={1.6} aria-hidden="true" /></span><span className="step-number">0{index + 1}</span></div>
-                    <h3 className="serif mt-3 text-[21px] text-[#2b4734]">{service.title}</h3>
-                    <p className="mt-2 text-[13px] leading-6 text-[#67756a]">{service.text}</p>
+                    <div className="flex items-center justify-between"><span className="flex items-center gap-2 text-[#4c6b35]"><Icon size={18} strokeWidth={1.6} aria-hidden="true" /></span><span className="step-number">0{index + 1}</span></div>
+                    <h3 className="serif mt-3 text-[21px] text-[#4c6b35]">{service.title}</h3>
+                    <p className="mt-2 text-[13px] leading-6 text-[#4c6b35]">{service.text}</p>
                   </div>
                 </article>;
               })}
@@ -122,13 +122,13 @@ function App() {
           <div className="container-wide grid items-center gap-12 py-20 md:grid-cols-[1fr_1.1fr] md:gap-24 md:py-28">
             <div className="relative min-h-[360px] overflow-hidden rounded-sm bg-[#d0d9c9]">
               <img src="/images/home-interior.jpg" alt="Een rustige woonruimte als voorbeeld van comfortabel wonen" className="absolute inset-0 h-full w-full object-cover" width="1200" height="900" loading="lazy" />
-              <div className="absolute bottom-5 left-5 bg-[#f7f4e9] px-5 py-4 text-[11px] font-semibold leading-5 text-[#536858]">Praktisch advies.<br />Passende installatie.</div>
+              <div className="absolute bottom-5 left-5 bg-[#f7f4e9] px-5 py-4 text-[11px] font-semibold leading-5 text-[#4c6b35]">Praktisch advies.<br />Passende installatie.</div>
             </div>
             <div>
               <p className="eyebrow">Persoonlijk en praktisch</p>
-              <h2 className="serif mt-5 text-[clamp(2.5rem,4.3vw,3.8rem)] leading-[1.07] text-[#294734]">Geen verkooppraatje.<br />Een plan voor uw huis.</h2>
-              <p className="mt-6 text-[14px] leading-7 text-[#5e6d62]">Een installatie moet niet alleen technisch kloppen; ze moet ook passen bij hoe u woont. Daarom begint ons werk met uw vraag. We brengen de mogelijkheden rustig in beeld, geven advies waar u iets aan heeft en kunnen de gekozen oplossing ook installeren.</p>
-              <p className="mt-4 text-[14px] leading-7 text-[#5e6d62]">Zo weet u beter waar u aan toe bent en kunt u een keuze maken die bij uw huis en wensen past.</p>
+              <h2 className="serif mt-5 text-[clamp(2.5rem,4.3vw,3.8rem)] leading-[1.07] text-[#4c6b35]">Geen verkooppraatje.<br />Een plan voor uw huis.</h2>
+              <p className="mt-6 text-[14px] leading-7 text-[#4c6b35]">Een installatie moet niet alleen technisch kloppen; ze moet ook passen bij hoe u woont. Daarom begint ons werk met uw vraag. We brengen de mogelijkheden rustig in beeld, geven advies waar u iets aan heeft en kunnen de gekozen oplossing ook installeren.</p>
+              <p className="mt-4 text-[14px] leading-7 text-[#4c6b35]">Zo weet u beter waar u aan toe bent en kunt u een keuze maken die bij uw huis en wensen past.</p>
               <a className="action-link mt-7" href={phoneHref}><Phone size={15} /> Leer ons kennen aan de telefoon</a>
             </div>
           </div>
@@ -137,13 +137,13 @@ function App() {
         <section id="werkwijze" className="section-pad container-wide">
           <div className="mx-auto max-w-[620px] text-center">
             <p className="eyebrow justify-center">Een helder begin</p>
-            <h2 className="serif mt-5 text-[clamp(2.5rem,4vw,3.6rem)] leading-[1.08] text-[#294734]">Van vraag naar<br />passende oplossing.</h2>
-            <p className="mx-auto mt-5 max-w-[460px] text-[14px] leading-7 text-[#657369]">U hoeft het niet al uitgedacht te hebben. Samen bekijken we wat verstandig is als volgende stap.</p>
+            <h2 className="serif mt-5 text-[clamp(2.5rem,4vw,3.6rem)] leading-[1.08] text-[#4c6b35]">Van vraag naar<br />passende oplossing.</h2>
+            <p className="mx-auto mt-5 max-w-[460px] text-[14px] leading-7 text-[#4c6b35]">U hoeft het niet al uitgedacht te hebben. Samen bekijken we wat verstandig is als volgende stap.</p>
           </div>
           <div className="mt-14 grid gap-10 border-t border-[#d2d6c9] pt-7 md:grid-cols-3 md:gap-12">
-            <article><img src="/images/qomforthome-step-01.webp" alt="Persoonlijk gesprek aan tafel over de woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 01</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">U vertelt</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">Wat wilt u verbeteren? We luisteren naar uw wensen en de situatie in huis.</p></article>
-            <article><img src="/images/qomforthome-step-02.webp" alt="Samen advies en mogelijkheden voor de woning bekijken" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 02</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">We denken mee</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">U krijgt begrijpelijk advies over mogelijkheden die bij uw woning kunnen passen.</p></article>
-            <article><img src="/images/qomforthome-step-03.webp" alt="Installateur werkt aan een warmtepomp bij een woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 03</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">Een volgende stap</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">Is er een passende oplossing? Dan bespreken we de installatie en het vervolg.</p></article>
+            <article><img src="/images/qomforthome-step-01.webp" alt="Persoonlijk gesprek aan tafel over de woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 01</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">U vertelt</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">Wat wilt u verbeteren? We luisteren naar uw wensen en de situatie in huis.</p></article>
+            <article><img src="/images/qomforthome-step-02.webp" alt="Samen advies en mogelijkheden voor de woning bekijken" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 02</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">We denken mee</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">U krijgt begrijpelijk advies over mogelijkheden die bij uw woning kunnen passen.</p></article>
+            <article><img src="/images/qomforthome-step-03.webp" alt="Installateur werkt aan een warmtepomp bij een woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 03</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">Een volgende stap</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">Is er een passende oplossing? Dan bespreken we de installatie en het vervolg.</p></article>
           </div>
         </section>
 
