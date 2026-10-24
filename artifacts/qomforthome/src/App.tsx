@@ -173,7 +173,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="bg-[#1d3326] text-[#f1efe5]">
+      <footer className="footer-blend text-[#f1efe5]">
         <div className="container-wide grid gap-10 py-12 md:grid-cols-[1.2fr_.8fr_.8fr] md:py-16">
           <div>
             <div className="inline-flex overflow-hidden rounded-sm bg-white"><img src="/qomforthome-logo-white.webp" className="h-[70px] w-[146px] object-contain" alt="QomfortHome Installatiebedrijf" width="1536" height="1024" loading="lazy" /></div>
