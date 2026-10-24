@@ -1,1 +1,1 @@
-- [QomfortHome visual direction](qomfort-home-branding.md) — Keep the white logo, edge-to-edge video, CTA-matched green, step imagery, and FAQs under “Even overleggen”.
+- [QomfortHome visual direction](qomfort-home-branding.md) — Keep the white-backed logo, full-width drone hero with green sweep, and FAQs separate from the contact form.

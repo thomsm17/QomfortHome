@@ -72,7 +72,18 @@ function App() {
             <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
           </button>
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
-          <div className="container-wide py-14 md:py-20">
+          <svg
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[34vh] min-h-[230px] max-h-[470px] w-full sm:h-[40vh] md:h-[48vh]"
+            viewBox="0 0 1440 560"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M 600 560 C 810 560 915 510 1035 405 C 1180 280 1280 88 1440 18 L 1440 560 Z"
+              fill="#325129"
+            />
+          </svg>
+          <div className="container-wide relative z-10 py-14 md:py-20">
             <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#4c6b35]">goed voelt.</span></h1>
             <p className="fade-up delay-2 mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[#eef0e4]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
