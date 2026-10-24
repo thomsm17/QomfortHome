@@ -70,13 +70,13 @@ function App() {
         <section className="relative isolate flex min-h-[calc(100dvh-78px)] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
           <img src="/images/qomforthome-aerial-fullbleed-poster-v3.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
           <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-fullbleed-v3.mp4" poster="/images/qomforthome-aerial-fullbleed-poster-v3.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
-          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#1d3326cc] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#1d3326]">
+          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#386847] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#285339]">
             {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
             <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
           </button>
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <div className="container-wide py-14 md:py-20">
-            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#879e3f]">goed voelt.</span></h1>
+            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98] [text-shadow:0_2px_18px_rgba(14,30,20,.45)]">Een huis dat <span className="text-[#386847] [text-shadow:0_0_6px_rgba(246,243,232,0.9)]">goed voelt.</span></h1>
             <p className="fade-up delay-2 mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[#eef0e4]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a className="action-link !border !border-[#ffffff66] !bg-transparent hover:!bg-[#ffffff22]" href={phoneHref}><Phone size={16} aria-hidden="true" /> Bel voor persoonlijk advies <ArrowRight size={16} aria-hidden="true" /></a>
@@ -141,27 +141,33 @@ function App() {
             <p className="mx-auto mt-5 max-w-[460px] text-[14px] leading-7 text-[#657369]">U hoeft het niet al uitgedacht te hebben. Samen bekijken we wat verstandig is als volgende stap.</p>
           </div>
           <div className="mt-14 grid gap-10 border-t border-[#d2d6c9] pt-7 md:grid-cols-3 md:gap-12">
-            <article><span className="step-number">STAP 01</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">U vertelt</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">Wat wilt u verbeteren? We luisteren naar uw wensen en de situatie in huis.</p></article>
-            <article><span className="step-number">STAP 02</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">We denken mee</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">U krijgt begrijpelijk advies over mogelijkheden die bij uw woning kunnen passen.</p></article>
-            <article><span className="step-number">STAP 03</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">Een volgende stap</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">Is er een passende oplossing? Dan bespreken we de installatie en het vervolg.</p></article>
+            <article><img src="/images/qomforthome-step-01.webp" alt="Persoonlijk gesprek aan tafel over de woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 01</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">U vertelt</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">Wat wilt u verbeteren? We luisteren naar uw wensen en de situatie in huis.</p></article>
+            <article><img src="/images/qomforthome-step-02.webp" alt="Samen advies en mogelijkheden voor de woning bekijken" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 02</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">We denken mee</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">U krijgt begrijpelijk advies over mogelijkheden die bij uw woning kunnen passen.</p></article>
+            <article><img src="/images/qomforthome-step-03.webp" alt="Installateur werkt aan een warmtepomp bij een woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 03</span><h3 className="serif mt-4 text-[23px] text-[#304b38]">Een volgende stap</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#667469]">Is er een passende oplossing? Dan bespreken we de installatie en het vervolg.</p></article>
           </div>
         </section>
 
         <section className="bg-[#294734] text-[#f6f3e8]">
-          <div className="container-wide grid gap-9 py-16 md:grid-cols-[1fr_auto] md:items-center md:py-20">
-            <div><p className="eyebrow !text-[#c6d2bd]">Even overleggen?</p><h2 className="serif mt-4 max-w-[680px] text-[clamp(2.4rem,4.4vw,4rem)] leading-[1.05]">Uw huis, uw vraag.<br />We denken graag mee.</h2><p className="mt-4 max-w-[500px] text-[14px] leading-7 text-[#d2d9ce]">Bel ons voor een persoonlijk gesprek over comfort, installatie of een volgende stap.</p></div>
-            <div className="flex flex-col items-start gap-3 md:items-end"><a className="action-link light" href={phoneHref}><Phone size={16} /> 06 27299635 <ArrowRight size={16} /></a><a className="action-link !bg-transparent !border !border-[#ffffff66] !text-white" href="mailto:info@qomforthome.nl">Mail info@qomforthome.nl</a><span className="text-[11px] text-[#c1cdbf]">U spreekt direct met QomfortHome.</span></div>
-          </div>
-        </section>
-
-        <section className="section-pad container-wide">
-          <div className="grid gap-12 md:grid-cols-[.7fr_1.3fr] md:gap-24">
-            <div><p className="eyebrow">Veelgestelde vragen</p><h2 className="serif mt-5 text-[clamp(2.4rem,4vw,3.5rem)] leading-[1.06] text-[#294734]">Goed om<br />te weten.</h2><p className="mt-5 max-w-[300px] text-[14px] leading-7 text-[#657369]">Staat uw vraag er niet bij? We helpen u graag verder aan de telefoon.</p><a className="mt-5 inline-flex items-center gap-2 text-[13px] font-bold text-[#3c6748] no-underline" href={phoneHref}>Bel 06 27299635 <ArrowRight size={15} /></a></div>
-            <div className="divide-y divide-[#d6d8ce] border-y border-[#d6d8ce]">
+          <div className="container-wide grid gap-10 py-16 md:grid-cols-[.85fr_1.15fr] md:gap-16 md:py-20">
+            <div>
+              <p className="eyebrow !text-[#c6d2bd]">Even overleggen?</p>
+              <h2 className="serif mt-4 max-w-[680px] text-[clamp(2.4rem,4.4vw,4rem)] leading-[1.05]">Uw huis, uw vraag.<br />We denken graag mee.</h2>
+              <p className="mt-4 max-w-[500px] text-[14px] leading-7 text-[#d2d9ce]">Bel ons voor een persoonlijk gesprek over comfort, installatie of een volgende stap.</p>
+              <div className="mt-7 flex flex-col items-start gap-3">
+                <a className="action-link light" href={phoneHref}><Phone size={16} /> 06 27299635 <ArrowRight size={16} /></a>
+                <a className="action-link !bg-transparent !border !border-[#ffffff66] !text-white" href="mailto:info@qomforthome.nl">Mail info@qomforthome.nl</a>
+                <span className="text-[11px] text-[#c1cdbf]">U spreekt direct met QomfortHome.</span>
+              </div>
+            </div>
+            <div>
+              <p className="eyebrow !text-[#c6d2bd]">Veelgestelde vragen</p>
+              <h3 className="serif mt-4 mb-6 text-[clamp(1.8rem,3vw,2.5rem)] leading-[1.1]">Goed om te weten.</h3>
+              <div className="divide-y divide-[#ffffff35] border-y border-[#ffffff35]">
               {faqs.map((faq, index) => <div key={faq.question}>
-                <button className="flex w-full items-center justify-between gap-6 py-5 text-left text-[14px] font-semibold text-[#304b38]" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)}>{faq.question}<ChevronDown size={18} className={`shrink-0 transition-transform ${openFaq === index ? 'rotate-180' : ''}`} /></button>
-                {openFaq === index && <p className="max-w-[600px] pb-5 pr-10 text-[13px] leading-6 text-[#657369]">{faq.answer}</p>}
+                <button id={`faq-trigger-${index}`} className="flex w-full items-center justify-between gap-6 py-5 text-left text-[14px] font-semibold text-[#f6f3e8]" aria-expanded={openFaq === index} aria-controls={`faq-panel-${index}`} onClick={() => setOpenFaq(openFaq === index ? null : index)}>{faq.question}<ChevronDown size={18} className={`shrink-0 transition-transform ${openFaq === index ? 'rotate-180' : ''}`} /></button>
+                <p id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-trigger-${index}`} hidden={openFaq !== index} className="max-w-[600px] pb-5 pr-10 text-[13px] leading-6 text-[#d2d9ce]">{faq.answer}</p>
               </div>)}
+              </div>
             </div>
           </div>
         </section>

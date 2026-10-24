@@ -1,1 +1,1 @@
-- [QomfortHome hero and header](qomfort-home-branding.md) — Keep the white logo on a white header and the full-bleed drone footage in the homepage hero.
+- [QomfortHome visual direction](qomfort-home-branding.md) — Keep the white logo, edge-to-edge video, CTA-matched green, step imagery, and FAQs under “Even overleggen”.
