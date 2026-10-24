@@ -40,11 +40,11 @@ function App() {
 
   return (
     <div className="min-h-[100dvh]">
-      <header className="sticky top-0 z-30 border-b border-[#e2e1d7] bg-[#f8f6ed]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-30 border-b border-[#e5e5e5] bg-white/95 backdrop-blur-md">
         <div className="container-wide flex h-[78px] items-center justify-between">
           <a className="flex items-center gap-3" href="#top" aria-label="QomfortHome, naar de startpagina">
-            <span className="flex h-[54px] w-[112px] items-center justify-center overflow-hidden rounded-sm bg-[#18221b]">
-              <img src="/qomforthome-logo.png" className="h-[54px] w-full object-contain" alt="Logo van QomfortHome Installatiebedrijf" />
+            <span className="flex h-[70px] w-[150px] items-center justify-center overflow-hidden bg-white">
+              <img src="/qomforthome-logo-white.webp" className="h-[70px] w-full object-contain" alt="Logo van QomfortHome Installatiebedrijf" />
             </span>
             <span className="hidden text-[10px] font-semibold uppercase leading-[1.5] tracking-[.15em] text-[#758075] sm:inline">Comfort begint<br />met goed advies</span>
           </a>
@@ -68,8 +68,8 @@ function App() {
 
       <main id="top">
         <section className="relative isolate flex min-h-[calc(100dvh-78px)] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
-          <img src="/images/qomforthome-aerial-poster-v2.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
-          <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-hero-v2.mp4" poster="/images/qomforthome-aerial-poster-v2.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
+          <img src="/images/qomforthome-aerial-fullbleed-poster-v3.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
+          <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-fullbleed-v3.mp4" poster="/images/qomforthome-aerial-fullbleed-poster-v3.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
           <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#1d3326cc] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#1d3326]">
             {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
             <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
