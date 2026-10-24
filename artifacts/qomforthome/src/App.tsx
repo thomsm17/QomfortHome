@@ -6,10 +6,10 @@ const phoneHref = 'tel:+31627299635';
 const serviceImages = ['/images/qomforthome-warmtepomp.webp','/images/qomforthome-airco.webp','/images/qomforthome-hybride.webp','/images/qomforthome-thuisbatterij.webp'];
 const serviceAlts = ['Warmtepomp bij een woning','Airco aan de wand in een woonruimte','Hybride verwarmingssysteem met warmtepomp en cv-ketel','Thuisbatterij in een woning'];
 const services = [
-  { title: 'Warmtepompen', text: 'Een passende oplossing voor verwarmen met oog voor uw woning en dagelijkse comfort.', icon: Thermometer },
-  { title: 'Airco’s', text: 'Aangenaam koel op warme dagen. We denken mee over een plek en systeem dat bij uw huis past.', icon: Snowflake },
-  { title: 'Hybride systemen', text: 'Een combinatie van een warmtepomp en uw bestaande cv-ketel, afgestemd op uw situatie.', icon: Zap },
-  { title: 'Thuisbatterijen', text: 'Verken wat een thuisbatterij kan betekenen voor het gebruik van energie in uw eigen huis.', icon: BatteryCharging },
+  { title: 'Warmtepompen', text: 'Een passende oplossing voor verwarmen met oog voor uw woning en dagelijkse comfort.', icon: Thermometer, iconColor: '#d96553' },
+  { title: 'Airco’s', text: 'Aangenaam koel op warme dagen. We denken mee over een plek en systeem dat bij uw huis past.', icon: Snowflake, iconColor: '#78bde5' },
+  { title: 'Hybride systemen', text: 'Een combinatie van een warmtepomp en uw bestaande cv-ketel, afgestemd op uw situatie.', icon: Zap, iconColor: '#d2ad22' },
+  { title: 'Thuisbatterijen', text: 'Verken wat een thuisbatterij kan betekenen voor het gebruik van energie in uw eigen huis.', icon: BatteryCharging, iconColor: '#000000' },
 ];
 
 const faqs = [
@@ -70,7 +70,7 @@ function App() {
         <section className="relative isolate flex min-h-[calc(100dvh-78px)] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
           <img src="/images/qomforthome-aerial-fullbleed-poster-v3.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
           <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-fullbleed-v3.mp4" poster="/images/qomforthome-aerial-fullbleed-poster-v3.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
-          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#386847] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#285339]">
+          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#4c6b35] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#3d592b]">
             {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
             <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
           </button>
@@ -108,7 +108,7 @@ function App() {
                 return <article className="group overflow-hidden rounded-sm border border-[#d8dacf] bg-[#fbfaf3]" key={service.title}>
                   <div className="aspect-[4/3] overflow-hidden bg-[#dfe3d6]"><img src={serviceImages[index]} alt={serviceAlts[index]} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width="800" height="600" loading="lazy" /></div>
                   <div className="p-5">
-                    <div className="flex items-center justify-between"><span className="flex items-center gap-2 text-[#4c6b35]"><Icon size={18} strokeWidth={1.6} aria-hidden="true" /></span><span className="step-number">0{index + 1}</span></div>
+                    <div className="flex items-center justify-between"><span className="flex items-center gap-2" style={{ color: service.iconColor }}><Icon size={18} strokeWidth={1.6} aria-hidden="true" /></span><span className="step-number">0{index + 1}</span></div>
                     <h3 className="serif mt-3 text-[21px] text-[#4c6b35]">{service.title}</h3>
                     <p className="mt-2 text-[13px] leading-6 text-[#4c6b35]">{service.text}</p>
                   </div>
@@ -184,7 +184,7 @@ function App() {
         </div>
         <div className="border-t border-[#37513f]"><div className="container-wide flex flex-col gap-2 py-4 text-[10px] text-[#b7c3b5] sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} QomfortHome Installatiebedrijf</span><span>Comfort begint met goed advies.</span></div></div>
       </footer>
-      <a href={phoneHref} aria-label="Bel QomfortHome op 06 27299635" className="fixed bottom-4 right-4 z-20 flex min-h-12 items-center gap-2 rounded-full bg-[#386847] px-4 text-[12px] font-bold text-white shadow-lg md:hidden"><Phone size={16} /> Bel QomfortHome</a>
+      <a href={phoneHref} aria-label="Bel QomfortHome op 06 27299635" className="fixed bottom-4 right-4 z-20 flex min-h-12 items-center gap-2 rounded-full bg-[#4c6b35] px-4 text-[12px] font-bold text-white shadow-lg md:hidden"><Phone size={16} /> Bel QomfortHome</a>
     </div>
   );
 }
