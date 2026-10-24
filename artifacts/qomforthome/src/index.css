@@ -71,6 +71,7 @@ a { color: inherit; }
 .nav-link:hover { color: #4c6b35; }
 .action-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border: 0; border-radius: 4px; background: #325129; color: #fffdf7; text-decoration: none; font-size: 13px; font-weight: 700; transition: background .2s ease, transform .2s ease; }
 .action-link:hover { background: #253e20; transform: translateY(-2px); }
+.mobile-call { color: #fffdf7; }
 .action-link.light { background: #f7f4e9; color: #4c6b35; }
 .action-link.light:hover { background: white; }
 .action-link.outline { border: 1px solid #aebcae; background: transparent; color: #4c6b35; }

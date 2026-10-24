@@ -176,7 +176,7 @@ function App() {
         </div>
         <div className="border-t border-[#37513f]"><div className="container-wide flex flex-col gap-2 py-4 text-[10px] text-[#b7c3b5] sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} QomfortHome Installatiebedrijf</span><span>Comfort begint met goed advies.</span></div></div>
       </footer>
-      <a href={phoneHref} aria-label="Bel QomfortHome op 06 27299635" className="fixed bottom-4 right-4 z-20 flex min-h-12 items-center gap-2 rounded-full bg-[#325129] px-4 text-[12px] font-bold text-white shadow-lg md:hidden"><Phone size={16} /> Bel QomfortHome</a>
+      <a href={phoneHref} aria-label="Bel QomfortHome op 06 27299635" className="mobile-call fixed bottom-4 right-4 z-20 flex min-h-12 items-center gap-2 rounded-full bg-[#325129] px-4 text-[12px] font-bold shadow-lg md:hidden"><Phone size={16} /> Bel QomfortHome</a>
     </div>
   );
 }
