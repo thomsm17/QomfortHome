@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { ArrowDown, ArrowRight, BatteryCharging, Check, House, Menu, Pause, Phone, Play, Snowflake, Thermometer, X, Zap } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowDown, ArrowRight, BatteryCharging, Check, House, Menu, Phone, Snowflake, Thermometer, X, Zap } from 'lucide-react';
 import ContactSection from './components/contact-section';
 
 const phoneHref = 'tel:+31627299635';
@@ -22,20 +22,6 @@ const services = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const [videoPlaying, setVideoPlaying] = useState(false);
-
-  const toggleHeroVideo = () => {
-    const video = heroVideoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      void video.play().then(() => setVideoPlaying(true)).catch(() => setVideoPlaying(false));
-    } else {
-      video.pause();
-      setVideoPlaying(false);
-    }
-  };
-
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -73,11 +59,7 @@ function App() {
       <main id="top">
         <section className="relative isolate flex min-h-[100dvh] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
           <img src={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
-          <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src={publicAssetPath('media/qomforthome-aerial-fullbleed-v3.mp4?v=hq4')} poster={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
-          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-[94px] z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#325129] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#253e20]">
-            {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
-            <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
-          </button>
+          <video className="absolute inset-0 -z-10 h-full w-full object-cover" src={publicAssetPath('media/qomforthome-aerial-fullbleed-v3.mp4?v=hq4')} poster={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} autoPlay muted loop playsInline preload="auto" aria-hidden="true" tabIndex={-1} />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <svg
             className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[22vh] min-h-[125px] max-h-[260px] w-full md:h-[21vh]"
