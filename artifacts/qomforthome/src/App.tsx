@@ -70,7 +70,7 @@ function App() {
         <section className="relative isolate flex min-h-[calc(100dvh-78px)] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
           <img src="/images/qomforthome-aerial-fullbleed-poster-v3.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
           <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-fullbleed-v3.mp4" poster="/images/qomforthome-aerial-fullbleed-poster-v3.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
-          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#4c6b35] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#3d592b]">
+          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#325129] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#253e20]">
             {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
             <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
           </button>
@@ -147,7 +147,7 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-[#4c6b35] text-[#f6f3e8]">
+        <section className="bg-[#325129] text-[#f6f3e8]">
           <div className="container-wide grid gap-10 py-16 md:grid-cols-[.85fr_1.15fr] md:gap-16 md:py-20">
             <div>
               <p className="eyebrow !text-[#c6d2bd]">Even overleggen?</p>
@@ -184,7 +184,7 @@ function App() {
         </div>
         <div className="border-t border-[#37513f]"><div className="container-wide flex flex-col gap-2 py-4 text-[10px] text-[#b7c3b5] sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} QomfortHome Installatiebedrijf</span><span>Comfort begint met goed advies.</span></div></div>
       </footer>
-      <a href={phoneHref} aria-label="Bel QomfortHome op 06 27299635" className="fixed bottom-4 right-4 z-20 flex min-h-12 items-center gap-2 rounded-full bg-[#4c6b35] px-4 text-[12px] font-bold text-white shadow-lg md:hidden"><Phone size={16} /> Bel QomfortHome</a>
+      <a href={phoneHref} aria-label="Bel QomfortHome op 06 27299635" className="fixed bottom-4 right-4 z-20 flex min-h-12 items-center gap-2 rounded-full bg-[#325129] px-4 text-[12px] font-bold text-white shadow-lg md:hidden"><Phone size={16} /> Bel QomfortHome</a>
     </div>
   );
 }
