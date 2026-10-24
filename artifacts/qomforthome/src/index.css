@@ -88,7 +88,8 @@ a { color: inherit; }
 .step-number { color: #4c6b35; font-family: var(--app-font-serif); font-size: 13px; font-weight: 800; }
 .footer-link { color: #d2d8ce; text-decoration: none; }
 .footer-link:hover { color: white; }
-.footer-blend { background: linear-gradient(180deg, #325129 0%, #284630 38%, #1d3326 80%); }
+.footer-blend { background: #1d3326; }
+.footer-blend::before { display: block; height: 76px; background: linear-gradient(180deg, #f7f4ef 0%, #dce1d4 45%, #1d3326 100%); content: ''; }
 .mobile-menu { display: none; }
 .fade-up { animation: fade-up .7s both; }
 .fade-up.delay-1 { animation-delay: .12s; }

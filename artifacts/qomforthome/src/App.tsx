@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-import { ArrowDown, ArrowRight, BatteryCharging, Check, ChevronDown, House, Menu, Pause, Phone, Play, Snowflake, Thermometer, X, Zap } from 'lucide-react';
+import { ArrowDown, ArrowRight, BatteryCharging, Check, House, Menu, Pause, Phone, Play, Snowflake, Thermometer, X, Zap } from 'lucide-react';
+import ContactSection from './components/contact-section';
 
 const phoneHref = 'tel:+31627299635';
 
@@ -12,16 +13,8 @@ const services = [
   { title: 'Thuisbatterijen', text: 'Verken wat een thuisbatterij kan betekenen voor het gebruik van energie in uw eigen huis.', icon: BatteryCharging, iconColor: '#000000' },
 ];
 
-const faqs = [
-  { question: 'Weet ik al precies welk systeem ik nodig heb?', answer: 'Dat hoeft niet. Vertel ons wat u merkt in huis en wat u wilt verbeteren. We bespreken samen welke mogelijkheden logisch zijn voor uw woning.' },
-  { question: 'Kan ik ook bellen voor alleen advies?', answer: 'Natuurlijk. Een eerste gesprek is bedoeld om uw vraag en situatie te begrijpen. U zit nergens aan vast.' },
-  { question: 'Doet QomfortHome ook de installatie?', answer: 'Ja. Advies en installatie horen bij ons werk. We bespreken vooraf wat uw woning nodig heeft en welke vervolgstap passend is.' },
-  { question: 'Welke oplossing past bij mijn woning?', answer: 'Dat hangt onder meer af van de woning, de huidige installatie en uw wensen. Daarom beginnen we met luisteren en praktisch advies, niet met een standaardoplossing.' },
-];
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
@@ -52,6 +45,8 @@ function App() {
             <a className="nav-link" href="#diensten">Onze diensten</a>
             <a className="nav-link" href="#werkwijze">Zo werken we</a>
             <a className="nav-link" href="#over-ons">Over QomfortHome</a>
+            <a className="nav-link" href="#veelgestelde-vragen">Veelgestelde vragen</a>
+            <a className="nav-link" href="#contact">Contact</a>
             <a className="action-link !min-h-[43px] !px-4" href={phoneHref}><Phone size={15} aria-hidden="true" /> Bel ons</a>
           </nav>
           <button className="mobile-menu min-h-11 min-w-11 items-center justify-center rounded border border-[#d7ddd2] text-[#4c6b35]" aria-label={menuOpen ? 'Menu sluiten' : 'Menu openen'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
@@ -62,6 +57,8 @@ function App() {
           <a className="nav-link rounded px-3 py-3" onClick={closeMenu} href="#diensten">Onze diensten</a>
           <a className="nav-link rounded px-3 py-3" onClick={closeMenu} href="#werkwijze">Zo werken we</a>
           <a className="nav-link rounded px-3 py-3" onClick={closeMenu} href="#over-ons">Over QomfortHome</a>
+          <a className="nav-link rounded px-3 py-3" onClick={closeMenu} href="#veelgestelde-vragen">Veelgestelde vragen</a>
+          <a className="nav-link rounded px-3 py-3" onClick={closeMenu} href="#contact">Contact</a>
           <a className="action-link mt-2" href={phoneHref}><Phone size={15} /> Bel 06 27299635</a>
         </nav>}
       </header>
@@ -147,30 +144,7 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-[#325129] text-[#f6f3e8]">
-          <div className="container-wide grid gap-10 py-16 md:grid-cols-[.85fr_1.15fr] md:gap-16 md:py-20">
-            <div>
-              <p className="eyebrow !text-[#c6d2bd]">Even overleggen?</p>
-              <h2 className="serif mt-4 max-w-[680px] text-[clamp(2.4rem,4.4vw,4rem)] leading-[1.05]">Uw huis, uw vraag.<br />We denken graag mee.</h2>
-              <p className="mt-4 max-w-[500px] text-[14px] leading-7 text-[#d2d9ce]">Bel ons voor een persoonlijk gesprek over comfort, installatie of een volgende stap.</p>
-              <div className="mt-7 flex flex-col items-start gap-3">
-                <a className="action-link light" href={phoneHref}><Phone size={16} /> 06 27299635 <ArrowRight size={16} /></a>
-                <a className="action-link !bg-transparent !border !border-[#ffffff66] !text-white" href="mailto:info@qomforthome.nl">Mail info@qomforthome.nl</a>
-                <span className="text-[11px] text-[#c1cdbf]">U spreekt direct met QomfortHome.</span>
-              </div>
-            </div>
-            <div>
-              <p className="eyebrow !text-[#c6d2bd]">Veelgestelde vragen</p>
-              <h3 className="serif mt-4 mb-6 text-[clamp(1.8rem,3vw,2.5rem)] leading-[1.1]">Goed om te weten.</h3>
-              <div className="divide-y divide-[#ffffff35] border-y border-[#ffffff35]">
-              {faqs.map((faq, index) => <div key={faq.question}>
-                <button id={`faq-trigger-${index}`} className="flex w-full items-center justify-between gap-6 py-5 text-left text-[14px] font-semibold text-[#f6f3e8]" aria-expanded={openFaq === index} aria-controls={`faq-panel-${index}`} onClick={() => setOpenFaq(openFaq === index ? null : index)}>{faq.question}<ChevronDown size={18} className={`shrink-0 transition-transform ${openFaq === index ? 'rotate-180' : ''}`} /></button>
-                <p id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-trigger-${index}`} hidden={openFaq !== index} className="max-w-[600px] pb-5 pr-10 text-[13px] leading-6 text-[#d2d9ce]">{faq.answer}</p>
-              </div>)}
-              </div>
-            </div>
-          </div>
-        </section>
+        <ContactSection />
       </main>
 
       <footer className="footer-blend text-[#f1efe5]">
@@ -179,7 +153,7 @@ function App() {
             <div className="inline-flex overflow-hidden rounded-sm bg-white"><img src="/qomforthome-logo-white.webp" className="h-[70px] w-[146px] object-contain" alt="QomfortHome Installatiebedrijf" width="1536" height="1024" loading="lazy" /></div>
             <p className="mt-4 max-w-[280px] text-[12px] leading-6 text-[#c3cec1]">Persoonlijk advies en installatie voor een comfortabeler, energiebewuster thuis.</p>
           </div>
-          <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Ontdek</h2><div className="flex flex-col items-start gap-3 text-[12px]"><a className="footer-link" href="#diensten">Onze diensten</a><a className="footer-link" href="#werkwijze">Zo werken we</a><a className="footer-link" href="#over-ons">Over QomfortHome</a></div></div>
+          <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Ontdek</h2><div className="flex flex-col items-start gap-3 text-[12px]"><a className="footer-link" href="#diensten">Onze diensten</a><a className="footer-link" href="#werkwijze">Zo werken we</a><a className="footer-link" href="#over-ons">Over QomfortHome</a><a className="footer-link" href="#veelgestelde-vragen">Veelgestelde vragen</a></div></div>
           <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Neem contact op</h2><a className="footer-link inline-flex items-center gap-2 text-[14px] font-semibold" href={phoneHref}><Phone size={15} /> 06 27299635</a><a className="footer-link mt-3 block text-[13px]" href="mailto:info@qomforthome.nl">info@qomforthome.nl</a><p className="mt-4 text-[12px] text-[#c3cec1]">KVK 42023215</p></div>
         </div>
         <div className="border-t border-[#37513f]"><div className="container-wide flex flex-col gap-2 py-4 text-[10px] text-[#b7c3b5] sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} QomfortHome Installatiebedrijf</span><span>Comfort begint met goed advies.</span></div></div>
