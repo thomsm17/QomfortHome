@@ -73,14 +73,14 @@ function App() {
           </button>
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <svg
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[34vh] min-h-[230px] max-h-[470px] w-full sm:h-[40vh] md:h-[48vh]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[38vh] min-h-[260px] max-h-[560px] w-full sm:h-[46vh] md:h-[54vh]"
             viewBox="0 0 1440 560"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <path
-              d="M 600 560 C 810 560 915 510 1035 405 C 1180 280 1280 88 1440 18 L 1440 560 Z"
-              fill="#325129"
+              d="M 580 560 C 820 560 930 500 1050 390 C 1200 250 1300 80 1440 0 L 1440 560 Z"
+              fill="#4c6b35"
             />
           </svg>
           <div className="container-wide relative z-10 py-14 md:py-20">
