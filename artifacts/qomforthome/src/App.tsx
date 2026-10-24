@@ -77,7 +77,7 @@ function App() {
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <div className="container-wide py-14 md:py-20">
             <p className="eyebrow fade-up !text-[#dfe8d6]">Comfortabel wonen, slim geregeld</p>
-            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#f0a090]">goed voelt.</span></h1>
+            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#dfe8d6]">goed voelt.</span></h1>
             <p className="fade-up delay-2 mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[#eef0e4]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a className="action-link light" href={phoneHref}><Phone size={16} aria-hidden="true" /> Bel voor persoonlijk advies <ArrowRight size={16} aria-hidden="true" /></a>
@@ -90,7 +90,7 @@ function App() {
         <section className="border-y border-[#e2e1d7] bg-[#eeeee3]">
           <div className="container-wide grid grid-cols-1 gap-6 py-6 sm:grid-cols-3 sm:gap-0">
             <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:pl-2"><House size={19} className="text-[#567455]" /><span className="text-[13px] font-semibold text-[#405748]">Advies afgestemd op uw woning</span></div>
-            <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:px-7"><Thermometer size={19} className="text-[#b55e4b]" /><span className="text-[13px] font-semibold text-[#405748]">Installatie en advies onder één dak</span></div>
+            <div className="flex items-center gap-3 sm:border-r sm:border-[#d5d8cc] sm:px-7"><Thermometer size={19} className="text-[#567455]" /><span className="text-[13px] font-semibold text-[#405748]">Installatie en advies onder één dak</span></div>
             <div className="flex items-center gap-3 sm:pl-7"><Phone size={18} className="text-[#567455]" /><span className="text-[13px] font-semibold text-[#405748]">Direct persoonlijk contact</span></div>
           </div>
         </section>
@@ -171,7 +171,7 @@ function App() {
       <footer className="bg-[#1d3326] text-[#f1efe5]">
         <div className="container-wide grid gap-10 py-12 md:grid-cols-[1.2fr_.8fr_.8fr] md:py-16">
           <div>
-            <div className="inline-flex overflow-hidden rounded-sm bg-[#101710]"><img src="/qomforthome-logo.png" className="h-[70px] w-[146px] object-contain" alt="QomfortHome Installatiebedrijf" width="1024" height="684" loading="lazy" /></div>
+            <div className="inline-flex overflow-hidden rounded-sm bg-white"><img src="/qomforthome-logo-white.webp" className="h-[70px] w-[146px] object-contain" alt="QomfortHome Installatiebedrijf" width="1536" height="1024" loading="lazy" /></div>
             <p className="mt-4 max-w-[280px] text-[12px] leading-6 text-[#c3cec1]">Persoonlijk advies en installatie voor een comfortabeler, energiebewuster thuis.</p>
           </div>
           <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Ontdek</h2><div className="flex flex-col items-start gap-3 text-[12px]"><a className="footer-link" href="#diensten">Onze diensten</a><a className="footer-link" href="#werkwijze">Zo werken we</a><a className="footer-link" href="#over-ons">Over QomfortHome</a></div></div>
