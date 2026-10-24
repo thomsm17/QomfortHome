@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+}
+
+:root {
+  --background: 45 35% 96%;
+  --foreground: 154 25% 16%;
+  --card: 46 36% 99%;
+  --card-foreground: 154 25% 16%;
+  --popover: 46 36% 99%;
+  --popover-foreground: 154 25% 16%;
+  --primary: 147 32% 29%;
+  --primary-foreground: 48 38% 97%;
+  --secondary: 41 24% 90%;
+  --secondary-foreground: 154 24% 21%;
+  --muted: 42 23% 91%;
+  --muted-foreground: 153 10% 43%;
+  --accent: 8 68% 58%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 42 17% 84%;
+  --input: 42 17% 84%;
+  --ring: 147 32% 29%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Manrope', sans-serif;
+  --app-font-mono: 'DM Sans', sans-serif;
+  --radius: 0.75rem;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--app-font-sans); -webkit-font-smoothing: antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+::selection { background: #d7e3ce; color: #203b2c; }
+.serif { font-family: var(--app-font-serif); letter-spacing: -0.055em; }
+.container-wide { width: min(1200px, calc(100% - 56px)); margin-inline: auto; }
+.eyebrow { display: flex; align-items: center; gap: 10px; color: #557460; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.eyebrow::before { width: 23px; height: 1px; background: #b75b49; content: ''; }
+.section-pad { padding-block: 110px; }
+.nav-link { text-decoration: none; color: #52645a; font-size: 13px; font-weight: 600; transition: color .2s ease; }
+.nav-link:hover { color: #2e6647; }
+.action-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border: 0; border-radius: 4px; background: #386847; color: #fffdf7; text-decoration: none; font-size: 13px; font-weight: 700; transition: background .2s ease, transform .2s ease; }
+.action-link:hover { background: #285339; transform: translateY(-2px); }
+.action-link.light { background: #f7f4e9; color: #284b35; }
+.action-link.light:hover { background: white; }
+.action-link.outline { border: 1px solid #aebcae; background: transparent; color: #315640; }
+.action-link.outline:hover { background: #e9eee5; }
+.hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; min-height: 610px; align-items: center; }
+.hero-visual { position: relative; min-height: 530px; overflow: hidden; border-radius: 4px; background: #d9ddd1; }
+.hero-visual img { width: 100%; height: 100%; min-height: 530px; position: absolute; inset: 0; object-fit: cover; }
+.hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(22,44,31,.25), transparent 43%); }
+.hero-note { position: absolute; z-index: 1; bottom: 24px; left: 24px; max-width: 250px; padding: 17px 20px; background: #f8f5e9; color: #345541; font-size: 12px; line-height: 1.5; }
+.service-card { min-height: 242px; padding: 26px; border-top: 1px solid #d2d6c9; transition: background .2s ease; }
+.service-card:hover { background: #f5f4e9; }
+.service-icon { display: grid; width: 43px; height: 43px; place-items: center; margin-bottom: 28px; border: 1px solid #b8c8b6; border-radius: 50%; color: #48704e; }
+.service-card h3 { margin: 0 0 10px; color: #2b4734; font-family: var(--app-font-serif); font-size: 20px; letter-spacing: -.04em; }
+.service-card p { max-width: 250px; margin: 0; color: #67756a; font-size: 13px; line-height: 1.7; }
+.step-number { color: #b35a49; font-family: var(--app-font-serif); font-size: 13px; font-weight: 800; }
+.footer-link { color: #d2d8ce; text-decoration: none; }
+.footer-link:hover { color: white; }
+.mobile-menu { display: none; }
+.fade-up { animation: fade-up .7s both; }
+.fade-up.delay-1 { animation-delay: .12s; }
+.fade-up.delay-2 { animation-delay: .22s; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 760px) {
+  .container-wide { width: min(100% - 36px, 560px); }
+  .section-pad { padding-block: 76px; }
+  .desktop-nav { display: none !important; }
+  .mobile-menu { display: inline-flex; }
+  .hero-grid { display: flex; flex-direction: column; align-items: stretch; gap: 34px; padding-block: 52px 46px; }
+  .hero-visual, .hero-visual img { min-height: 370px; }
+  .service-card { min-height: auto; padding: 22px 5px 27px; }
+  .service-icon { margin-bottom: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
