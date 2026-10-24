@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, BatteryCharging, Check, ChevronDown, House, Menu, Phone, Snowflake, Thermometer, X, Zap } from 'lucide-react';
 
 const phoneHref = 'tel:+31627299635';
 
+const serviceImages = ['/images/qomforthome-warmtepomp.webp','/images/qomforthome-airco.webp','/images/qomforthome-hybride.webp','/images/qomforthome-thuisbatterij.webp'];
+const serviceAlts = ['Warmtepomp bij een woning','Airco aan de wand in een woonruimte','Hybride verwarmingssysteem met warmtepomp en cv-ketel','Thuisbatterij in een woning'];
 const services = [
   { title: 'Warmtepompen', text: 'Een passende oplossing voor verwarmen met oog voor uw woning en dagelijkse comfort.', icon: Thermometer },
   { title: 'Airco’s', text: 'Aangenaam koel op warme dagen. We denken mee over een plek en systeem dat bij uw huis past.', icon: Snowflake },
@@ -20,6 +22,15 @@ const faqs = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const [reduceMotion, setReduceMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduceMotion(mq.matches);
+    const on = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -52,23 +63,19 @@ function App() {
       </header>
 
       <main id="top">
-        <section className="container-wide hero-grid">
-          <div className="py-12 pr-0 sm:pr-10">
-            <p className="eyebrow fade-up">Comfortabel wonen, slim geregeld</p>
-            <h1 className="serif fade-up delay-1 mt-6 max-w-[570px] text-[clamp(3.2rem,6vw,5.55rem)] leading-[.99] text-[#294734]">Een huis dat<br /><span className="text-[#b45b48]">goed voelt.</span></h1>
-            <p className="fade-up delay-2 mt-7 max-w-[460px] text-[16px] leading-[1.75] text-[#617066]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a className="action-link" href={phoneHref}><Phone size={16} aria-hidden="true" /> Bel voor persoonlijk advies <ArrowRight size={16} aria-hidden="true" /></a>
-              <a className="action-link outline !border-transparent !px-2" href="#diensten">Bekijk de mogelijkheden <ArrowDown size={15} aria-hidden="true" /></a>
+        <section className="relative isolate flex min-h-[calc(100dvh-78px)] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
+          <img src="/images/drone-poster.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1280" height="720" />
+          {!reduceMotion && <video className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-neighborhood-drone.mp4" poster="/images/drone-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} />}
+          <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
+          <div className="container-wide py-14 md:py-20">
+            <p className="eyebrow fade-up !text-[#dfe8d6]">Comfortabel wonen, slim geregeld</p>
+            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#f0a090]">goed voelt.</span></h1>
+            <p className="fade-up delay-2 mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[#eef0e4]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a className="action-link light" href={phoneHref}><Phone size={16} aria-hidden="true" /> Bel voor persoonlijk advies <ArrowRight size={16} aria-hidden="true" /></a>
+              <a className="action-link !border !border-[#ffffff66] !bg-transparent hover:!bg-[#ffffff22]" href="#diensten">Bekijk de mogelijkheden <ArrowDown size={15} aria-hidden="true" /></a>
             </div>
-            <div className="mt-9 flex items-center gap-3 text-[12px] font-medium text-[#647269]">
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-[#e5ebdf] text-[#406a49]"><Check size={14} /></span>
-              Eerst luisteren. Dan pas adviseren.
-            </div>
-          </div>
-          <div className="hero-visual fade-up delay-2">
-            <img src="/images/home-interior.jpg" alt="Lichte, comfortabele woonkamer met uitzicht op de tuin" width="1200" height="900" fetchPriority="high" />
-            <div className="hero-note"><span className="mb-1 block text-[10px] font-bold uppercase tracking-[.15em] text-[#b35b48]">Een goed begin</span>De juiste oplossing begint bij uw woning en uw wensen.</div>
+            <div className="mt-8 flex items-center gap-3 text-[12px] font-medium text-[#e4ead9]"><span className="grid h-7 w-7 place-items-center rounded-full bg-[#ffffff22]"><Check size={14} aria-hidden="true" /></span>Eerst luisteren. Dan pas adviseren.</div>
           </div>
         </section>
 
@@ -88,13 +95,16 @@ function App() {
               <p className="mt-5 max-w-[380px] text-[14px] leading-7 text-[#657369]">Geen huis is hetzelfde. We kijken naar uw situatie en leggen helder uit welke oplossingen u kunt overwegen.</p>
               <a href={phoneHref} className="mt-7 inline-flex items-center gap-2 text-[13px] font-bold text-[#3c6748] no-underline hover:text-[#b45b48]">Bespreek uw plannen <ArrowRight size={16} /></a>
             </div>
-            <div className="grid gap-x-8 sm:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2">
               {services.map((service, index) => {
                 const Icon = service.icon;
-                return <article className="service-card" key={service.title}>
-                  <div className="flex items-start justify-between"><span className="service-icon"><Icon size={20} strokeWidth={1.5} /></span><span className="step-number">0{index + 1}</span></div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
+                return <article className="group overflow-hidden rounded-sm border border-[#d8dacf] bg-[#fbfaf3]" key={service.title}>
+                  <div className="aspect-[4/3] overflow-hidden bg-[#dfe3d6]"><img src={serviceImages[index]} alt={serviceAlts[index]} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width="800" height="600" loading="lazy" /></div>
+                  <div className="p-5">
+                    <div className="flex items-center justify-between"><span className="flex items-center gap-2 text-[#48704e]"><Icon size={18} strokeWidth={1.6} aria-hidden="true" /></span><span className="step-number">0{index + 1}</span></div>
+                    <h3 className="serif mt-3 text-[21px] text-[#2b4734]">{service.title}</h3>
+                    <p className="mt-2 text-[13px] leading-6 text-[#67756a]">{service.text}</p>
+                  </div>
                 </article>;
               })}
             </div>
@@ -133,7 +143,7 @@ function App() {
         <section className="bg-[#294734] text-[#f6f3e8]">
           <div className="container-wide grid gap-9 py-16 md:grid-cols-[1fr_auto] md:items-center md:py-20">
             <div><p className="eyebrow !text-[#c6d2bd]">Even overleggen?</p><h2 className="serif mt-4 max-w-[680px] text-[clamp(2.4rem,4.4vw,4rem)] leading-[1.05]">Uw huis, uw vraag.<br />We denken graag mee.</h2><p className="mt-4 max-w-[500px] text-[14px] leading-7 text-[#d2d9ce]">Bel ons voor een persoonlijk gesprek over comfort, installatie of een volgende stap.</p></div>
-            <div className="flex flex-col items-start gap-3 md:items-end"><a className="action-link light" href={phoneHref}><Phone size={16} /> 06 27299635 <ArrowRight size={16} /></a><span className="text-[11px] text-[#c1cdbf]">U spreekt direct met QomfortHome.</span></div>
+            <div className="flex flex-col items-start gap-3 md:items-end"><a className="action-link light" href={phoneHref}><Phone size={16} /> 06 27299635 <ArrowRight size={16} /></a><a className="action-link !bg-transparent !border !border-[#ffffff66] !text-white" href="mailto:info@qomforthome.nl">Mail info@qomforthome.nl</a><span className="text-[11px] text-[#c1cdbf]">U spreekt direct met QomfortHome.</span></div>
           </div>
         </section>
 
@@ -157,7 +167,7 @@ function App() {
             <p className="mt-4 max-w-[280px] text-[12px] leading-6 text-[#c3cec1]">Persoonlijk advies en installatie voor een comfortabeler, energiebewuster thuis.</p>
           </div>
           <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Ontdek</h2><div className="flex flex-col items-start gap-3 text-[12px]"><a className="footer-link" href="#diensten">Onze diensten</a><a className="footer-link" href="#werkwijze">Zo werken we</a><a className="footer-link" href="#over-ons">Over QomfortHome</a></div></div>
-          <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Neem contact op</h2><a className="footer-link inline-flex items-center gap-2 text-[14px] font-semibold" href={phoneHref}><Phone size={15} /> 06 27299635</a><p className="mt-4 text-[12px] text-[#c3cec1]">KVK 42023215</p></div>
+          <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Neem contact op</h2><a className="footer-link inline-flex items-center gap-2 text-[14px] font-semibold" href={phoneHref}><Phone size={15} /> 06 27299635</a><a className="footer-link mt-3 block text-[13px]" href="mailto:info@qomforthome.nl">info@qomforthome.nl</a><p className="mt-4 text-[12px] text-[#c3cec1]">KVK 42023215</p></div>
         </div>
         <div className="border-t border-[#37513f]"><div className="container-wide flex flex-col gap-2 py-4 text-[10px] text-[#b7c3b5] sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} QomfortHome Installatiebedrijf</span><span>Comfort begint met goed advies.</span></div></div>
       </footer>
