@@ -13,7 +13,7 @@ const connectors = new ReplitConnectors();
 const recentSubmissions = new Map<string, number>();
 const submissionCooldownMs = 60_000;
 const recipient = process.env.CONTACT_RECIPIENT_EMAIL?.trim() || "info@qomforthome.nl";
-const sender = "QomfortHome website <info@qomforthome.nl>";
+const sender = process.env.CONTACT_EMAIL_FROM?.trim() || "QomfortHome website <info@qomforthome.nl>";
 
 const topicLabels: Record<ContactRequestInput["topic"], string> = {
   warmtepomp: "Warmtepomp",
