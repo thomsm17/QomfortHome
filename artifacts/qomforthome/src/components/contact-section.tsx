@@ -1,9 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Building2, ChevronDown, Mail, Phone } from "lucide-react";
-import {
-  submitContactRequest,
-  type ContactRequestInput,
-} from "@workspace/api-client-react";
+import type { ContactRequestInput } from "@workspace/api-client-react";
 
 type ContactTopic = ContactRequestInput["topic"];
 
@@ -24,6 +21,8 @@ const emptyFields: FormFields = {
   message: "",
   website: "",
 };
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdeekzen";
 
 const faqs = [
   {
@@ -78,22 +77,46 @@ export default function ContactSection() {
       return;
     }
 
-    const payload: ContactRequestInput = {
-      name,
-      email,
-      topic,
-      message,
-      phone: fields.phone.trim(),
-      website: fields.website,
-    };
+    const formData = new FormData(event.currentTarget);
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("topic", topic);
+    formData.set("message", message);
+    formData.set("phone", fields.phone.trim());
+    formData.set("_gotcha", fields.website);
+    formData.set("_subject", `Nieuwe QomfortHome-aanvraag: ${topic}`);
 
     setFormStatus("sending");
     setFeedback("");
 
     try {
-      const result = await submitContactRequest(payload);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      const result = (await response.json().catch(() => null)) as {
+        errors?: Array<{ message?: string }>;
+      } | null;
+
+      if (!response.ok) {
+        const details = result?.errors
+          ?.map((error) => error.message)
+          .filter(Boolean)
+          .join(" ");
+        setFormStatus("error");
+        setFeedback(
+          details
+            ? `Versturen is niet gelukt: ${details}`
+            : "Versturen is niet gelukt. Controleer de Formspree-instellingen of probeer het later opnieuw.",
+        );
+        return;
+      }
+
       setFormStatus("sent");
-      setFeedback(result.message);
+      setFeedback(
+        "Bedankt! Uw aanvraag is verstuurd. We nemen zo snel mogelijk contact met u op.",
+      );
       setFields(emptyFields);
     } catch {
       setFormStatus("error");
@@ -176,7 +199,7 @@ export default function ContactSection() {
               <label htmlFor="contact-website">Laat dit veld leeg</label>
               <input
                 id="contact-website"
-                name="website"
+                name="_gotcha"
                 autoComplete="off"
                 tabIndex={-1}
                 value={fields.website}
