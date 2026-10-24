@@ -4,7 +4,14 @@ import ContactSection from './components/contact-section';
 
 const phoneHref = 'tel:+31627299635';
 
-const serviceImages = ['/images/qomforthome-warmtepomp.webp','/images/qomforthome-airco.webp','/images/qomforthome-hybride.webp','/images/qomforthome-thuisbatterij.webp'];
+const publicAssetPath = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const serviceImages = [
+  'images/qomforthome-warmtepomp.webp',
+  'images/qomforthome-airco.webp',
+  'images/qomforthome-hybride.webp',
+  'images/qomforthome-thuisbatterij.webp',
+].map(publicAssetPath);
 const serviceAlts = ['Warmtepomp bij een woning','Airco aan de wand in een woonruimte','Hybride verwarmingssysteem met warmtepomp en cv-ketel','Thuisbatterij in een woning'];
 const services = [
   { title: 'Warmtepompen', text: 'Een passende oplossing voor verwarmen met oog voor uw woning en dagelijkse comfort.', icon: Thermometer, iconColor: '#d96553' },
@@ -37,7 +44,7 @@ function App() {
         <div className="container-wide flex h-[78px] items-center justify-between">
           <a className="flex items-center gap-3" href="#top" aria-label="QomfortHome, naar de startpagina">
             <span className="flex h-[70px] w-[150px] items-center justify-center overflow-hidden bg-white">
-              <img src="/qomforthome-logo-white.webp" className="h-[70px] w-full object-contain" alt="Logo van QomfortHome Installatiebedrijf" />
+              <img src={publicAssetPath('qomforthome-logo-white.webp')} className="h-[70px] w-full object-contain" alt="Logo van QomfortHome Installatiebedrijf" />
             </span>
             <span className="hidden text-[10px] font-semibold uppercase leading-[1.5] tracking-[.15em] text-[#4c6b35] sm:inline">Comfort begint<br />met goed advies</span>
           </a>
@@ -65,8 +72,8 @@ function App() {
 
       <main id="top">
         <section className="relative isolate flex min-h-[100dvh] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
-          <img src="/images/qomforthome-aerial-fullbleed-poster-v3.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
-          <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-fullbleed-v3.mp4" poster="/images/qomforthome-aerial-fullbleed-poster-v3.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
+          <img src={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
+          <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src={publicAssetPath('media/qomforthome-aerial-fullbleed-v3.mp4')} poster={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
           <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-[94px] z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#325129] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#253e20]">
             {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
             <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
@@ -129,7 +136,7 @@ function App() {
         <section id="over-ons" className="bg-[#e8ebe0]">
           <div className="container-wide grid items-center gap-12 py-20 md:grid-cols-[1fr_1.1fr] md:gap-24 md:py-28">
             <div className="relative min-h-[360px] overflow-hidden rounded-sm bg-[#d0d9c9]">
-              <img src="/images/home-interior.jpg" alt="Een rustige woonruimte als voorbeeld van comfortabel wonen" className="absolute inset-0 h-full w-full object-cover" width="1200" height="900" loading="lazy" />
+              <img src={publicAssetPath('images/home-interior.jpg')} alt="Een rustige woonruimte als voorbeeld van comfortabel wonen" className="absolute inset-0 h-full w-full object-cover" width="1200" height="900" loading="lazy" />
               <div className="absolute bottom-5 left-5 bg-[#f7f4e9] px-5 py-4 text-[11px] font-semibold leading-5 text-[#4c6b35]">Praktisch advies.<br />Passende installatie.</div>
             </div>
             <div>
@@ -149,9 +156,9 @@ function App() {
             <p className="mx-auto mt-5 max-w-[460px] text-[14px] leading-7 text-[#4c6b35]">U hoeft het niet al uitgedacht te hebben. Samen bekijken we wat verstandig is als volgende stap.</p>
           </div>
           <div className="mt-14 grid gap-10 border-t border-[#d2d6c9] pt-7 md:grid-cols-3 md:gap-12">
-            <article><img src="/images/qomforthome-step-01.webp" alt="Persoonlijk gesprek aan tafel over de woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 01</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">U vertelt</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">Wat wilt u verbeteren? We luisteren naar uw wensen en de situatie in huis.</p></article>
-            <article><img src="/images/qomforthome-step-02.webp" alt="Samen advies en mogelijkheden voor de woning bekijken" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 02</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">We denken mee</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">U krijgt begrijpelijk advies over mogelijkheden die bij uw woning kunnen passen.</p></article>
-            <article><img src="/images/qomforthome-step-03.webp" alt="Installateur werkt aan een warmtepomp bij een woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 03</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">Een volgende stap</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">Is er een passende oplossing? Dan bespreken we de installatie en het vervolg.</p></article>
+            <article><img src={publicAssetPath('images/qomforthome-step-01.webp')} alt="Persoonlijk gesprek aan tafel over de woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 01</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">U vertelt</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">Wat wilt u verbeteren? We luisteren naar uw wensen en de situatie in huis.</p></article>
+            <article><img src={publicAssetPath('images/qomforthome-step-02.webp')} alt="Samen advies en mogelijkheden voor de woning bekijken" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 02</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">We denken mee</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">U krijgt begrijpelijk advies over mogelijkheden die bij uw woning kunnen passen.</p></article>
+            <article><img src={publicAssetPath('images/qomforthome-step-03.webp')} alt="Installateur werkt aan een warmtepomp bij een woning" className="mb-5 aspect-[4/3] w-full rounded-sm object-cover" width="960" height="720" loading="lazy" /><span className="step-number">STAP 03</span><h3 className="serif mt-4 text-[23px] text-[#4c6b35]">Een volgende stap</h3><p className="mt-3 max-w-[300px] text-[13px] leading-6 text-[#4c6b35]">Is er een passende oplossing? Dan bespreken we de installatie en het vervolg.</p></article>
           </div>
         </section>
 
@@ -161,7 +168,7 @@ function App() {
       <footer className="footer-blend text-[#f1efe5]">
         <div className="container-wide grid gap-10 py-12 md:grid-cols-[1.2fr_.8fr_.8fr] md:py-16">
           <div>
-            <div className="inline-flex overflow-hidden rounded-sm bg-white"><img src="/qomforthome-logo-white.webp" className="h-[70px] w-[146px] object-contain" alt="QomfortHome Installatiebedrijf" width="1536" height="1024" loading="lazy" /></div>
+            <div className="inline-flex overflow-hidden rounded-sm bg-white"><img src={publicAssetPath('qomforthome-logo-white.webp')} className="h-[70px] w-[146px] object-contain" alt="QomfortHome Installatiebedrijf" width="1536" height="1024" loading="lazy" /></div>
             <p className="mt-4 max-w-[280px] text-[12px] leading-6 text-[#c3cec1]">Persoonlijk advies en installatie voor een comfortabeler, energiebewuster thuis.</p>
           </div>
           <div><h2 className="mb-4 text-[11px] font-bold uppercase tracking-[.16em] text-[#b9c8b8]">Ontdek</h2><div className="flex flex-col items-start gap-3 text-[12px]"><a className="footer-link" href="#diensten">Onze diensten</a><a className="footer-link" href="#werkwijze">Zo werken we</a><a className="footer-link" href="#over-ons">Over QomfortHome</a><a className="footer-link" href="#veelgestelde-vragen">Veelgestelde vragen</a></div></div>
