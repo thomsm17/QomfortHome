@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="min-h-[100dvh]">
-      <header className={`sticky top-0 z-30 ${menuOpen ? '' : '-mb-[78px]'} border-b border-white/35 bg-white/80 backdrop-blur-md`}>
+      <header className={`sticky top-0 z-30 ${menuOpen ? '' : '-mb-[78px]'} border-b border-white/60 bg-white/90 backdrop-blur-md`}>
         <div className="container-wide flex h-[78px] items-center justify-between">
           <a className="flex items-center gap-3" href="#top" aria-label="QomfortHome, naar de startpagina">
             <span className="flex h-[70px] w-[150px] items-center justify-center overflow-hidden bg-white">
@@ -73,14 +73,14 @@ function App() {
           </button>
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <svg
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[38vh] min-h-[260px] max-h-[560px] w-full sm:h-[46vh] md:h-[54vh]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[22vh] min-h-[125px] max-h-[260px] w-full md:h-[21vh]"
             viewBox="0 0 1440 560"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <path
               d="M 580 560 C 820 560 930 500 1050 390 C 1200 250 1300 80 1440 0 L 1440 560 Z"
-              fill="#4c6b35"
+              fill="#325129"
             />
           </svg>
           <div className="container-wide relative z-10 py-14 md:py-20">
