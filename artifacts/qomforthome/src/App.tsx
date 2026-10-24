@@ -91,7 +91,7 @@ function App() {
             />
           </svg>
           <div className="container-wide relative z-10 py-14 md:py-20">
-            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="text-[#4c6b35]">goed voelt.</span></h1>
+            <h1 id="hero-titel" className="serif fade-up delay-1 mt-5 max-w-[760px] text-[clamp(2.9rem,7vw,6rem)] leading-[.98]">Een huis dat <span className="hero-text-glow">goed voelt.</span></h1>
             <p className="fade-up delay-2 mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[#eef0e4]">Van warmtepomp tot thuisbatterij: QomfortHome helpt u kiezen wat bij uw huis past en verzorgt ook de installatie.</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a className="action-link !border !border-[#ffffff66] !bg-transparent hover:!bg-[#ffffff22]" href={phoneHref}><Phone size={16} aria-hidden="true" /> Bel voor persoonlijk advies <ArrowRight size={16} aria-hidden="true" /></a>
