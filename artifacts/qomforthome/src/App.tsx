@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="min-h-[100dvh]">
-      <header className={`sticky top-0 z-30 ${menuOpen ? '' : '-mb-[78px]'} border-b border-white/60 bg-white/90 backdrop-blur-md`}>
+      <header className={`sticky top-0 z-30 ${menuOpen ? '' : '-mb-[78px]'} border-b border-white bg-white`}>
         <div className="container-wide flex h-[78px] items-center justify-between">
           <a className="flex items-center gap-3" href="#top" aria-label="QomfortHome, naar de startpagina">
             <span className="flex h-[70px] w-[150px] items-center justify-center overflow-hidden bg-white">
