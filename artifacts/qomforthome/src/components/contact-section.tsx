@@ -26,7 +26,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdeekzen";
 
 const faqs = [
   {
-    question: "Weet ik al precies welk systeem ik nodig heb?",
+    question: "Moet ik al precies weten welk systeem ik nodig heb?",
     answer:
       "Dat hoeft niet. Vertel ons wat u merkt in huis en wat u wilt verbeteren. We bespreken samen welke mogelijkheden logisch zijn voor uw woning.",
   },
