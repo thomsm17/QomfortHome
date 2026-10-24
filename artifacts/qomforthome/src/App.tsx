@@ -147,7 +147,7 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-[#294734] text-[#f6f3e8]">
+        <section className="bg-[#4c6b35] text-[#f6f3e8]">
           <div className="container-wide grid gap-10 py-16 md:grid-cols-[.85fr_1.15fr] md:gap-16 md:py-20">
             <div>
               <p className="eyebrow !text-[#c6d2bd]">Even overleggen?</p>
