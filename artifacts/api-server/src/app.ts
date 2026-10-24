@@ -6,6 +6,16 @@ import { logger } from "./lib/logger";
 
 const app: Express = express();
 
+const allowedOrigins = new Set(
+  (
+    process.env.CORS_ORIGINS ??
+    "https://thomsm17.github.io,https://qomforthome.nl,https://www.qomforthome.nl"
+  )
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+);
+
 app.use(
   pinoHttp({
     logger,
@@ -25,7 +35,15 @@ app.use(
     },
   }),
 );
-app.use(cors());
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Requests without an Origin header (such as local health checks) are not
+      // subject to browser CORS enforcement.
+      callback(null, !origin || allowedOrigins.has(origin));
+    },
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

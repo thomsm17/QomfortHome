@@ -36,11 +36,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Verify API URL is configured
+        run: |
+          if [ -z "$VITE_API_BASE_URL" ]; then
+            echo "::error::Set the GitHub Actions repository variable QOMFORTHOME_API_URL to the public API origin."
+            exit 1
+          fi
+        env:
+          VITE_API_BASE_URL: ${{ vars.QOMFORTHOME_API_URL }}
+
       - name: Build website
         run: pnpm --filter @workspace/qomforthome run build
         env:
           PORT: 4173
           BASE_PATH: /QomfortHome/
+          VITE_API_BASE_URL: ${{ vars.QOMFORTHOME_API_URL }}
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
