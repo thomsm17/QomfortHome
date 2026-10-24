@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowRight, BatteryCharging, Check, ChevronDown, House, Menu, Phone, Snowflake, Thermometer, X, Zap } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowDown, ArrowRight, BatteryCharging, Check, ChevronDown, House, Menu, Pause, Phone, Play, Snowflake, Thermometer, X, Zap } from 'lucide-react';
 
 const phoneHref = 'tel:+31627299635';
 
@@ -22,15 +22,19 @@ const faqs = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
-  const [reduceMotion, setReduceMotion] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduceMotion(mq.matches);
-    const on = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
-    mq.addEventListener('change', on);
-    return () => mq.removeEventListener('change', on);
-  }, []);
+  const toggleHeroVideo = () => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play().then(() => setVideoPlaying(true)).catch(() => setVideoPlaying(false));
+    } else {
+      video.pause();
+      setVideoPlaying(false);
+    }
+  };
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -64,8 +68,12 @@ function App() {
 
       <main id="top">
         <section className="relative isolate flex min-h-[calc(100dvh-78px)] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
-          <img src="/images/drone-poster.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1280" height="720" />
-          {!reduceMotion && <video className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-neighborhood-drone.mp4" poster="/images/drone-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} />}
+          <img src="/images/qomforthome-aerial-poster-v2.webp" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
+          <video ref={heroVideoRef} className="absolute inset-0 -z-10 h-full w-full object-cover" src="/media/qomforthome-aerial-hero-v2.mp4" poster="/images/qomforthome-aerial-poster-v2.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} />
+          <button type="button" onClick={toggleHeroVideo} aria-label={videoPlaying ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af'} className="absolute right-5 top-5 z-20 inline-flex min-h-10 items-center gap-2 rounded-sm border border-white/40 bg-[#1d3326cc] px-3 text-[11px] font-semibold text-white backdrop-blur-sm hover:bg-[#1d3326]">
+            {videoPlaying ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
+            <span>{videoPlaying ? 'Pauzeer video' : 'Video afspelen'}</span>
+          </button>
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <div className="container-wide py-14 md:py-20">
             <p className="eyebrow fade-up !text-[#dfe8d6]">Comfortabel wonen, slim geregeld</p>
