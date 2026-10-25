@@ -26,7 +26,7 @@ function App() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="min-h-[100dvh]">
+    <div className="min-h-[100svh]">
       <header className={`sticky top-0 z-30 ${menuOpen ? '' : '-mb-[78px]'} border-b border-white bg-white`}>
         <div className="container-wide flex h-[78px] items-center justify-between">
           <a className="flex items-center gap-3" href="#top" aria-label="QomfortHome, naar de startpagina">
@@ -58,12 +58,12 @@ function App() {
       </header>
 
       <main id="top">
-        <section className="relative isolate flex min-h-[100dvh] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
+        <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#1d3326] text-[#fbf9f0]" aria-labelledby="hero-titel">
           <img src={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1080" />
           <HeroVideo src={publicAssetPath('media/qomforthome-aerial-fullbleed-v3.mp4?v=hq4')} poster={publicAssetPath('images/qomforthome-aerial-fullbleed-poster-v3.webp')} />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(0deg,rgba(18,36,26,.9)_0%,rgba(18,36,26,.55)_48%,rgba(18,36,26,.2)_100%)]" />
           <svg
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[22vh] min-h-[125px] max-h-[260px] w-full md:h-[21vh]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[22svh] min-h-[125px] max-h-[260px] w-full md:h-[21svh]"
             viewBox="0 0 1440 560"
             preserveAspectRatio="none"
             aria-hidden="true"
